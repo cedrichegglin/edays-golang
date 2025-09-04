@@ -54,3 +54,6 @@ coverage.html
 # Temporary files
 tmp/
 temp/
+
+# Binary
+edays

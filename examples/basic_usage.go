@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/cedrichegglin/edays-golang/pkg/greetings"
 )
