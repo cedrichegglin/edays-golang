@@ -7,12 +7,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetAlbums(c *gin.Context) {
+func RegisterAlbumRoutes(rg *gin.RouterGroup) {
+	rg.GET("/", getAlbums)
+	rg.GET("/:id", getAlbumByID)
+	rg.POST("/", postAlbums)
+}
+
+func getAlbums(c *gin.Context) {
 	// Get all albums
 	c.IndentedJSON(http.StatusOK, dto.Albums)
 }
 
-func PostAlbums(c *gin.Context) {
+func postAlbums(c *gin.Context) {
 	var newAlbum dto.Album
 
 	// Call BindJSON to bind the received JSON to
@@ -26,7 +32,7 @@ func PostAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
-func GetAlbumByID(c *gin.Context) {
+func getAlbumByID(c *gin.Context) {
 	id := c.Param("id")
 
 	// Loop over the list of albums, looking for
